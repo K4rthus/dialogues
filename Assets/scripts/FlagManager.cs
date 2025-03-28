@@ -5,21 +5,21 @@ public class FlagManager : MonoBehaviour
 {
     public static FlagManager Instance { get; private set; }
 
-    private Dictionary<string, bool> flags = new Dictionary<string, bool>();
+    private Dictionary<string, bool> flags = new();
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public bool CheckFlag(string flagName)
-    {
-        return flags.TryGetValue(flagName, out bool value) && value;
-    }
-
-    public void SetFlag(string flagName, bool state)
-    {
-        flags[flagName] = state;
-    }
+    public void SetFlag(string flagName, bool state) => flags[flagName] = state;
+    public bool CheckFlag(string flagName) => flags.TryGetValue(flagName, out bool value) && value;
 }

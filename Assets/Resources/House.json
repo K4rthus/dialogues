@@ -1,0 +1,46 @@
+{
+    "startNode": "house_start",
+    "nodes": [
+      {
+        "id": "house_start",
+        "text": "вы вошли в дом",
+        "options": [
+          {
+            "text": "осмотреться",
+            "targetNode": "house2",
+            "conditions": [
+                {
+                    "flagName": "fork", 
+                    "requiredState": true
+                }
+            ]
+          },
+          {
+            "text": "подойти к столу",
+            "targetNode": "house3",
+            "flagOperations": []
+          },
+          {
+            "text": "выйти из дома",
+            "sceneTransitions": [
+                {
+                    "unitySceneName": "Camp",
+                    "targetScene": "Camp",
+                    "targetNode": "node1"
+                }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "house2",
+        "text": "дом пустой.",
+        "options": []
+      },
+      {
+        "id": "house3",
+        "text": "На столе остатки еды, которые похожу уже лежат здесь несколько дней",
+        "options": []
+      }
+    ]
+  }

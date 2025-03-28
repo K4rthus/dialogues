@@ -6,5 +6,5 @@ public class DialogueNode
 {
     public string id;
     [TextArea(3, 10)] public string text;
-    public List<DialogueOption> options = new List<DialogueOption>();
+    public List<DialogueOption> options = new();
 }

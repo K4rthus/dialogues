@@ -6,6 +6,7 @@ public class DialogueOption
 {
     [TextArea(1, 3)] public string text;
     public string targetNode;
-    public List<FlagCondition> conditions = new List<FlagCondition>();
-    public List<FlagOperation> flagOperations = new List<FlagOperation>();
+    public List<SceneTransition> sceneTransitions = new();
+    public List<FlagCondition> conditions = new();
+    public List<FlagOperation> flagOperations = new();
 }
